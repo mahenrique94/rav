@@ -1,0 +1,18 @@
+.menu__list {
+    display: flex;
+}
+
+.menu__item {
+    list-style: none;
+}
+
+.menu__link {
+    color: #fdfdfd;
+    display: block;
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+}
+.menu__link:hover {
+    background: #007399;
+    cursor: pointer;
+}
