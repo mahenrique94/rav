@@ -2,10 +2,10 @@ import { createComponent } from '@rav/dom'
 
 import { Link } from '@rav/router'
 
-import A from '../A'
-import B from '../B'
-import C from '../C'
-import Home from '../Home'
+import A from '../../pages/A'
+import B from '../../pages/B'
+import C from '../../pages/C'
+import Home from '../../pages/Home'
 
 import './Menu.css'
 

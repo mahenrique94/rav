@@ -6,8 +6,9 @@ const Link = props => createComponent('a', {
     href: props.to,
     onClick: event => {
         event.preventDefault()
-        emit('ROUTE_CHANGE', props.component().outerHTML)
-        history.pushState(props.component().outerHTML, 'title', props.to)
+        const render = props.component().outerHTML
+        emit('ROUTE_CHANGE', render)
+        history.pushState(render, 'title', props.to)
     }
 }, props.children)
 
