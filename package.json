@@ -6,7 +6,7 @@
         "@babel/preset-env": "^7.4.5",
         "@commitlint/cli": "^8.0.0",
         "@commitlint/config-conventional": "^8.0.0",
-        "babel-loader": "^8.0.5",
+        "babel-loader": "^8.0.6",
         "css-loader": "^2.1.0",
         "html-webpack-plugin": "^3.2.0",
         "husky": "^2.4.1",
@@ -23,6 +23,7 @@
     "license": "ISC",
     "name": "rav",
     "scripts": {
+        "build": "webpack",
         "check:code": "prettier --config ./.prettierrc --check './src/**/*.{css,js}'",
         "commitlint": "commitlint -E HUSKY_GIT_PARAMS",
         "format:code": "prettier --config ./.prettierrc --write './src/**/*.{css,js}'",

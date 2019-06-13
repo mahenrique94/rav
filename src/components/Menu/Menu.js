@@ -16,9 +16,13 @@ const MenuLinkHome = Link({
     to: '/'
 })
 
-const MenuItemHome = createComponent('li', {
-    className: 'menu__item'
-}, MenuLinkHome)
+const MenuItemHome = createComponent(
+    'li',
+    {
+        className: 'menu__item'
+    },
+    MenuLinkHome
+)
 
 const MenuLinkA = Link({
     children: 'A',
@@ -27,9 +31,13 @@ const MenuLinkA = Link({
     to: '/a'
 })
 
-const MenuItemA = createComponent('li', {
-    className: 'menu__item'
-}, MenuLinkA)
+const MenuItemA = createComponent(
+    'li',
+    {
+        className: 'menu__item'
+    },
+    MenuLinkA
+)
 
 const MenuLinkB = Link({
     children: 'B',
@@ -38,9 +46,13 @@ const MenuLinkB = Link({
     to: '/b'
 })
 
-const MenuItemB = createComponent('li', {
-    className: 'menu__item'
-}, MenuLinkB)
+const MenuItemB = createComponent(
+    'li',
+    {
+        className: 'menu__item'
+    },
+    MenuLinkB
+)
 
 const MenuLinkC = Link({
     children: 'C',
@@ -49,21 +61,28 @@ const MenuLinkC = Link({
     to: '/c'
 })
 
-const MenuItemC = createComponent('li', {
-    className: 'menu__item'
-}, MenuLinkC)
+const MenuItemC = createComponent(
+    'li',
+    {
+        className: 'menu__item'
+    },
+    MenuLinkC
+)
 
-const MenuList = createComponent('ul', {
-    className: 'menu__list'
-}, [
-    MenuItemHome,
-    MenuItemA,
-    MenuItemB,
-    MenuItemC
-])
+const MenuList = createComponent(
+    'ul',
+    {
+        className: 'menu__list'
+    },
+    [MenuItemHome, MenuItemA, MenuItemB, MenuItemC]
+)
 
-const Menu = createComponent('nav', {
-    className: 'menu'
-}, MenuList)
+const Menu = createComponent(
+    'nav',
+    {
+        className: 'menu'
+    },
+    MenuList
+)
 
 export default Menu
