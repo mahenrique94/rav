@@ -18,7 +18,7 @@ const handleRouteChange = newPath => {
                 const router = document.querySelector('#router')
                 router.innerHTML = ''
                 router.appendChild(targetComponent())
-            }, 500)
+            }, 100)
         }
     }
 }
