@@ -1,5 +1,5 @@
 import { createComponent } from '@rav/dom'
 
-const A = () => createComponent('h1', null, 'A')
+const A = () => <h1 className="tst">A</h1>
 
 export default A

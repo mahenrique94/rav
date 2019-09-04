@@ -1,5 +1,5 @@
 import { createComponent } from '@rav/dom'
 
-const C = () => createComponent('h1', null, 'C')
+const C = () => <h1>C</h1>
 
 export default C

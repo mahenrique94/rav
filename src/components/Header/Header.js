@@ -4,12 +4,10 @@ import Menu from '../Menu'
 
 import './Header.css'
 
-const Header = createComponent(
-    'header',
-    {
-        className: 'header'
-    },
-    Menu
+const Header = () => (
+    <header className="header">
+        <Menu />
+    </header>
 )
 
 export default Header

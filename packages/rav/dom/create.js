@@ -2,10 +2,21 @@ const dictionary = new Map()
 dictionary.set('className', 'class')
 
 const createComponent = (type, attributes, content) => {
+    if (typeof type === 'function') {
+        const c = type({
+            ...attributes,
+            children: content
+        })
+        return c
+    }
+    if (typeof type === 'object') {
+        return type
+    }
+
     const newComponent = document.createElement(type)
 
     if (attributes) {
-        Object.entries(attributes).forEach(([ key, value ]) => {
+        Object.entries(attributes).forEach(([key, value]) => {
             if (key.startsWith('on')) {
                 newComponent.addEventListener(key.substring(2).toLowerCase(), value)
             } else {

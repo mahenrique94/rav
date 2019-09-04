@@ -6,6 +6,6 @@ listen('ROUTE_CHANGE', data => {
     router.innerHTML = data
 })
 
-const Router = createComponent('div', { id: 'router' }, history.state)
+const Router = () => <div id="router">{history.state}</div>
 
 export default Router

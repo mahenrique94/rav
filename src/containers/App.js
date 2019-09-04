@@ -1,16 +1,16 @@
 import { createComponent } from '@rav/dom'
+
 import { Router } from '@rav/router'
 
 import Header from '../components/Header'
 
 import './App.css'
 
-const App = createComponent(
-    'main',
-    {
-        className: 'container'
-    },
-    [Header, Router]
+const App = () => (
+    <div>
+        <Header />
+        <Router />
+    </div>
 )
 
 export default App
