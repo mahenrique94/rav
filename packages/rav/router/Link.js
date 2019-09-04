@@ -1,11 +1,11 @@
+import { EVENTS } from '../constants/events'
+
 import rav from '../'
 import { emit } from '../event'
 
-const handleClick = (component, to) => {
-    event.preventDefault()
-    const render = component.innerHTML
-    emit('ROUTE_CHANGE', render)
-    history.pushState(render, null, to)
+const handleClick = to => {
+    emit(EVENTS.ROUTER_ROUTE_CHANGE, to)
+    history.pushState(null, null, to)
 }
 
 const Link = (content, props) =>
@@ -13,7 +13,7 @@ const Link = (content, props) =>
         ...props,
         onClick: event => {
             event.preventDefault()
-            handleClick(props.component(), props.to)
+            handleClick(props.to)
         },
     })
 
