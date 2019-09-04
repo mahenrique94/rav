@@ -1,54 +1,45 @@
-const dictionary = new Map()
-dictionary.set('className', 'class')
+import { PRIVATE_ATTRIBUTES } from '../constants/attributes'
+import { DICTIONARY, ELEMENTS } from '../constants/elements'
 
-const createComponent = (type, attributes, content) => {
-    if (typeof type === 'function') {
-        const c = type({
-            ...attributes,
-            children: content
-        })
-        return c
-    }
-    if (typeof type === 'object') {
-        return type
-    }
+const createElement = (type, content, props) => {
+    const newElement = document.createElement(type)
 
-    const newComponent = document.createElement(type)
-
-    if (attributes) {
-        Object.entries(attributes).forEach(([key, value]) => {
+    if (props) {
+        Object.entries(props).forEach(([key, value]) => {
             if (key.startsWith('on')) {
-                newComponent.addEventListener(key.substring(2).toLowerCase(), value)
+                newElement.addEventListener(key.substring(2).toLowerCase(), value)
             } else {
-                newComponent.setAttribute(dictionary.get(key) || key, value)
+                if (PRIVATE_ATTRIBUTES.includes(key)) {
+                    return
+                }
+                newElement.setAttribute(DICTIONARY.get(key) || key, value)
             }
         })
     }
 
-    if (content) {
-        switch (typeof content) {
-            case 'array':
-                content.forEach(element => newComponent.appendChild(element.call()))
-                break
-            case 'function':
-                newComponent.appendChild(content.call())
-                break
-            case 'object':
+    switch (typeof content) {
+        case 'object':
+            if (content) {
                 if (Array.isArray(content)) {
-                    content.forEach(element => newComponent.appendChild(element))
+                    content.forEach(c => newElement.appendChild(c))
                     break
                 }
-                newComponent.appendChild(content)
-                break
-            case 'string':
-                newComponent.innerHTML = content
-                break
-            default:
-                newComponent.appendChild(content)
-        }
+                newElement.appendChild(content)
+            }
+            break
+        default:
+            newElement.innerHTML = content
     }
 
-    return newComponent
+    return newElement
 }
+
+const createComponent = ELEMENTS.map(element => (content, props) => createElement(element, content, props)).reduce(
+    (acc, element, index) => {
+        acc[ELEMENTS[index]] = element
+        return acc
+    },
+    {},
+)
 
 export { createComponent }

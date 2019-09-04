@@ -8,5 +8,5 @@
     "singleQuote": true,
     "useTabs": false,
     "tabWidth": 4,
-    "trailingComma": "none"
+    "trailingComma": "all"
 }

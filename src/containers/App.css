@@ -1,3 +1,7 @@
-#router {
-    padding: 2.5rem 5rem;
+.my-class {
+    color: red;
+}
+
+.my-paragraph {
+    color: green;
 }

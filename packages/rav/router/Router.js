@@ -1,4 +1,4 @@
-import { createComponent } from '../dom'
+import rav from '../'
 import { listen } from '../event'
 
 listen('ROUTE_CHANGE', data => {
@@ -6,6 +6,9 @@ listen('ROUTE_CHANGE', data => {
     router.innerHTML = data
 })
 
-const Router = () => <div id="router">{history.state}</div>
+const Router = () =>
+    rav.div(history.state, {
+        id: 'router',
+    })
 
 export default Router

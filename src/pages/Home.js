@@ -1,29 +1,14 @@
-import { createComponent } from '@rav/dom'
+import rav from '@rav'
 
-const Home = () => (
-    <div>
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Age</th>
-                    <th>Birth</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Matheus</td>
-                    <td>25</td>
-                    <td>25/05/1994</td>
-                </tr>
-                <tr>
-                    <td>João</td>
-                    <td>18</td>
-                    <td>28/02/1991</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-)
+const Home = () =>
+    rav.div(
+        rav.table([
+            rav.thead(rav.tr([rav.th('Name'), rav.th('Age'), rav.th('Birth')])),
+            rav.tbody([
+                rav.tr([rav.td('Matheus'), rav.td('25'), rav.td('25/05/1994')]),
+                rav.tr([rav.td('João'), rav.td('18'), rav.td('28/02/1991')]),
+            ]),
+        ]),
+    )
 
 export default Home

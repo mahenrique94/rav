@@ -1,17 +1,20 @@
-import { createComponent } from '../dom'
+import rav from '../'
 import { emit } from '../event'
 
-const handleClick = event => {
+const handleClick = (component, to) => {
     event.preventDefault()
-    const render = props.component().outerHTML
+    const render = component.innerHTML
     emit('ROUTE_CHANGE', render)
-    history.pushState(render, 'title', props.to)
+    history.pushState(render, null, to)
 }
 
-const Link = props => (
-    <a {...props} onClick={handleClick}>
-        {props.children}
-    </a>
-)
+const Link = (content, props) =>
+    rav.a(content, {
+        ...props,
+        onClick: event => {
+            event.preventDefault()
+            handleClick(props.component(), props.to)
+        },
+    })
 
 export default Link

@@ -1,0 +1,40 @@
+const DICTIONARY = new Map()
+DICTIONARY.set('className', 'class')
+
+const ELEMENTS = [
+    'a',
+    'article',
+    'b',
+    'code',
+    'div',
+    'em',
+    'fieldset',
+    'h1',
+    'h2',
+    'h3',
+    'h4',
+    'h5',
+    'h6',
+    'header',
+    'i',
+    'input',
+    'label',
+    'li',
+    'nav',
+    'p',
+    'section',
+    'select',
+    'small',
+    'span',
+    'strong',
+    'table',
+    'tbody',
+    'td',
+    'textarea',
+    'th',
+    'thead',
+    'tr',
+    'ul',
+]
+
+export { DICTIONARY, ELEMENTS }

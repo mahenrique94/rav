@@ -1,4 +1,4 @@
-import { createComponent } from '@rav/dom'
+import rav from '@rav'
 
 import { Link } from '@rav/router'
 
@@ -9,31 +9,46 @@ import Home from '../../pages/Home'
 
 import './Menu.css'
 
-const Menu = () => (
-    <nav className="menu">
-        <ul className="menu__list">
-            <li className="menu__item">
-                <Link className="menu__link" component={Home} to="/">
-                    Home
-                </Link>
-            </li>
-            <li className="menu__item">
-                <Link className="menu__link" component={A} to="/">
-                    A
-                </Link>
-            </li>
-            <li className="menu__item">
-                <Link className="menu__link" component={B} to="/">
-                    B
-                </Link>
-            </li>
-            <li className="menu__item">
-                <Link className="menu__link" component={C} to="/">
-                    C
-                </Link>
-            </li>
-        </ul>
-    </nav>
-)
+const Menu = () =>
+    rav.nav(
+        rav.ul(
+            [
+                rav.li(
+                    Link('Home', {
+                        className: 'menu__link',
+                        component: Home,
+                        to: '/',
+                    }),
+                    { className: 'menu__item' },
+                ),
+                rav.li(
+                    Link('A', {
+                        className: 'menu__link',
+                        component: A,
+                        to: '/a',
+                    }),
+                    { className: 'menu__item' },
+                ),
+                rav.li(
+                    Link('B', {
+                        className: 'menu__link',
+                        component: B,
+                        to: '/b',
+                    }),
+                    { className: 'menu__item' },
+                ),
+                rav.li(
+                    Link('C', {
+                        className: 'menu__link',
+                        component: C,
+                        to: '/c',
+                    }),
+                    { className: 'menu__item' },
+                ),
+            ],
+            { className: 'menu__list' },
+        ),
+        { className: 'menu' },
+    )
 
 export default Menu

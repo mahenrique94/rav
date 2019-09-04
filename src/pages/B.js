@@ -1,5 +1,5 @@
-import { createComponent } from '@rav/dom'
+import rav from '@rav'
 
-const B = () => <h1>B</h1>
+const B = () => rav.h1('B')
 
 export default B
